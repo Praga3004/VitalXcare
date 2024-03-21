@@ -31,41 +31,41 @@ class _signUpState extends State<signUp> {
   TextEditingController Con3 = TextEditingController();
   TextEditingController Con4 = TextEditingController();
   TextEditingController Con5 = TextEditingController();
-  // Future<void> registerUser(
-  //     String email, String password, String name, int phone) async {
-  //   try {
-  //     final credential =
-  //         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //       email: email,
-  //       password: password,
-  //     );
+  Future<void> registerUser(
+      String email, String password, String name, int phone) async {
+    try {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-  //     final user = credential.user;
+      final user = credential.user;
 
-  //     // Hash the password securely before storing
-  //     final hashedPassword = password;
-  //     String usertype = buttonValue == 1 ? 'Doctor' : 'Patient';
-  //     // Prepare user profile data for Firestore (excluding password)
-  //     Map<String, dynamic> userData = {
-  //       'uid': user!.uid,
-  //       'name': name,
-  //       'email': email,
-  //       'phone': phone,
-  //       'UserType': usertype
-  //       // Consider storing email in a separate collection with stricter rules
-  //       // Add other profile details as needed
-  //     };
+      // Hash the password securely before storing
+      final hashedPassword = password;
+      String usertype = buttonValue == 1 ? 'Doctor' : 'Patient';
+      // Prepare user profile data for Firestore (excluding password)
+      Map<String, dynamic> userData = {
+        'uid': user!.uid,
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'UserType': usertype
+        // Consider storing email in a separate collection with stricter rules
+        // Add other profile details as needed
+      };
 
-  //     // Add user profile data to Firestore collection
-  //     await FirebaseFirestore.instance.collection('users').add(userData);
+      // Add user profile data to Firestore collection
+      await FirebaseFirestore.instance.collection('users').add(userData);
 
-  //     print('User registered successfully!');
-  //   } on FirebaseAuthException catch (error) {
-  //     print('Registration failed: ${error.code}');
-  //   } catch (error) {
-  //     print('Error registering user: $error');
-  //   }
-  // }
+      print('User registered successfully!');
+    } on FirebaseAuthException catch (error) {
+      print('Registration failed: ${error.code}');
+    } catch (error) {
+      print('Error registering user: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -477,7 +477,7 @@ class _signUpState extends State<signUp> {
                                   confpass = false;
                                   return;
                                 }
-                                // registerUser(email, password, name, phone);
+                                registerUser(email, password, name, phone);
                               });
                             },
                             style: ButtonStyle(
@@ -898,7 +898,7 @@ class _signUpState extends State<signUp> {
                                   confpass = false;
                                   return;
                                 }
-                                // registerUser(email, password, name, phone);
+                                registerUser(email, password, name, phone);
                               },
                               style: ButtonStyle(
                                 backgroundColor:
