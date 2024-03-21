@@ -14,7 +14,7 @@ class logIn extends StatefulWidget {
 class _logInState extends State<logIn> {
   Color buttonColor = Color(0xFF1A4563);
   Color hoverColor = Colors.lightBlue;
-  bool icon_vis = false;
+  bool icon_vis = true;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -105,6 +105,7 @@ class _logInState extends State<logIn> {
                                 SizedBox(
                                   height: 44,
                                   child: TextField(
+                                    obscureText: icon_vis,
                                     decoration: InputDecoration(
                                         filled: true,
                                         fillColor: Colors.white,
@@ -114,7 +115,7 @@ class _logInState extends State<logIn> {
                                                 icon_vis = !icon_vis;
                                               });
                                             },
-                                            icon: Icon(icon_vis
+                                            icon: Icon(!icon_vis
                                                 ? Icons.visibility_off
                                                 : Icons.visibility)),
                                         border: OutlineInputBorder()),
@@ -395,6 +396,7 @@ class _logInState extends State<logIn> {
                                   SizedBox(
                                     height: 44,
                                     child: TextField(
+                                      obscureText: icon_vis,
                                       decoration: InputDecoration(
                                           filled: true,
                                           fillColor: Colors.white,
@@ -404,7 +406,7 @@ class _logInState extends State<logIn> {
                                                   icon_vis = !icon_vis;
                                                 });
                                               },
-                                              icon: Icon(icon_vis
+                                              icon: Icon(!icon_vis
                                                   ? Icons.visibility_off
                                                   : Icons.visibility)),
                                           border: OutlineInputBorder()),
