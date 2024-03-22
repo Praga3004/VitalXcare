@@ -1,2 +1,2 @@
 # VitalXcare
-An Generic Flutter HC Application.
+An Generic Flutter HealthCareS Application.
