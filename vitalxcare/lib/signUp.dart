@@ -1,8 +1,7 @@
 import "package:flutter/gestures.dart";
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
+import "package:vitalxcare/homePage.dart";
 import "package:vitalxcare/logIn.dart";
-import 'package:hash/hash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -31,6 +30,7 @@ class _signUpState extends State<signUp> {
   TextEditingController Con3 = TextEditingController();
   TextEditingController Con4 = TextEditingController();
   TextEditingController Con5 = TextEditingController();
+  String message = '';
   Future<void> registerUser(
       String email, String password, String name, int phone) async {
     try {
@@ -51,7 +51,8 @@ class _signUpState extends State<signUp> {
         'name': name,
         'email': email,
         'phone': phone,
-        'UserType': usertype
+        'UserType': usertype,
+        'Password': hashedPassword,
         // Consider storing email in a separate collection with stricter rules
         // Add other profile details as needed
       };
@@ -60,11 +61,34 @@ class _signUpState extends State<signUp> {
       await FirebaseFirestore.instance.collection('users').add(userData);
 
       print('User registered successfully!');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
     } on FirebaseAuthException catch (error) {
+      message = 'Registration failed: ${error.code}';
+      _showMyDialog();
+
       print('Registration failed: ${error.code}');
     } catch (error) {
       print('Error registering user: $error');
     }
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            "Warning",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+          content: Text(
+            message,
+            style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -105,12 +129,12 @@ class _signUpState extends State<signUp> {
       });
     }
 
-    return MaterialApp(home: Scaffold(
+    return MaterialApp(
+        home: Scaffold(
       body: Center(
-        child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxHeight > 700) {
-            return Container(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Container(
               color: Color(0xFFDCEDF9),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -118,7 +142,7 @@ class _signUpState extends State<signUp> {
                   child: Container(
                     padding: EdgeInsets.all(10),
                     width: 300,
-                    height: 1000,
+                    height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: [
                         Text(
@@ -243,16 +267,6 @@ class _signUpState extends State<signUp> {
                             ],
                           ),
                         ),
-                        Visibility(
-                          visible: !nam,
-                          child: Text(
-                            'Name Invalid',
-                            style: TextStyle(
-                                fontSize: 15.0,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
                         SizedBox(
                           height: 15,
                         ),
@@ -270,9 +284,8 @@ class _signUpState extends State<signUp> {
                               SizedBox(
                                 height: 44,
                                 child: TextField(
-                                  keyboardType: TextInputType.emailAddress,
                                   controller: Con2,
-                                  onTap: () => {setState(() {})},
+                                  keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
@@ -281,16 +294,6 @@ class _signUpState extends State<signUp> {
                                 ),
                               )
                             ],
-                          ),
-                        ),
-                        Visibility(
-                          visible: !emai,
-                          child: Text(
-                            'Email Invalid',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(
@@ -311,7 +314,6 @@ class _signUpState extends State<signUp> {
                                 height: 44,
                                 child: TextField(
                                   controller: Con3,
-                                  onTap: () => {setState(() {})},
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
@@ -320,16 +322,6 @@ class _signUpState extends State<signUp> {
                                 ),
                               )
                             ],
-                          ),
-                        ),
-                        Visibility(
-                          visible: !phon,
-                          child: Text(
-                            'Phone Number Invalid',
-                            style: TextStyle(
-                                fontSize: 15.0,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(
@@ -350,7 +342,6 @@ class _signUpState extends State<signUp> {
                                 height: 44,
                                 child: TextField(
                                   controller: Con4,
-                                  onTap: () => {setState(() {})},
                                   obscureText: icon_vis,
                                   decoration: InputDecoration(
                                       filled: true,
@@ -369,16 +360,6 @@ class _signUpState extends State<signUp> {
                                 ),
                               )
                             ],
-                          ),
-                        ),
-                        Visibility(
-                          visible: !pass,
-                          child: Text(
-                            'Password Invalid',
-                            style: TextStyle(
-                                fontSize: 15.0,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(
@@ -391,7 +372,7 @@ class _signUpState extends State<signUp> {
                               Text(
                                 'Confirm password',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 117, 125, 131),
+                                    color: Color(0xFF1A4563),
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -399,7 +380,6 @@ class _signUpState extends State<signUp> {
                                 height: 44,
                                 child: TextField(
                                   controller: Con5,
-                                  onTap: () => {setState(() {})},
                                   obscureText: icon_vis,
                                   decoration: InputDecoration(
                                       filled: true,
@@ -420,13 +400,6 @@ class _signUpState extends State<signUp> {
                             ],
                           ),
                         ),
-                        Visibility(
-                          visible: !confpass,
-                          child: Text(
-                            'Confim Password',
-                            style: TextStyle(fontSize: 10.0, color: Colors.red),
-                          ),
-                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -435,50 +408,70 @@ class _signUpState extends State<signUp> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              setState(() {
-                                if (is_name(Con1.text)) {
-                                  name = Con1.text;
-                                  print(name);
-                                  nam = true;
-                                } else {
-                                  nam = false;
+                              if (is_name(Con1.text)) {
+                                name = Con1.text;
+                                print(name);
+                                message = '';
+                              } else {
+                                message = Con1.text == ''
+                                    ? 'Please Enter Name'
+                                    : 'Name Invalid';
+                                _showMyDialog();
+                                return;
+                              }
+                              if (is_email(Con2.text)) {
+                                email = Con2.text;
+                                emai = true;
+                                message = '';
+                              } else {
+                                message = Con2.text == ''
+                                    ? 'Please Enter Email ID'
+                                    : 'Email Invalid';
+                                _showMyDialog();
+
+                                return;
+                              }
+                              if (is_phone(Con3.text)) {
+                                phone = int.parse(Con3.text);
+                                message = '';
+                                print(phone);
+                              } else {
+                                message = Con3.text == ''
+                                    ? 'Please Enter Phone Number'
+                                    : 'Phone Number Invalid';
+                                _showMyDialog();
+                                return;
+                              }
+                              if (validatepassword(Con4.text)) {
+                                password = Con4.text;
+                                message = '';
+                                print(password);
+                              } else {
+                                message = Con4.text == ''
+                                    ? 'Please Enter Password'
+                                    : 'Password Invalid';
+                                _showMyDialog();
+                                return;
+                              }
+                              if (validatepassword(Con5.text)) {
+                                confirmpassword = Con5.text;
+                                message = Con4.text == Con5.text
+                                    ? ''
+                                    : 'Password Donot Match';
+                                if (message != '') {
+                                  _showMyDialog();
                                   return;
                                 }
-                                if (is_email(Con2.text)) {
-                                  email = Con2.text;
-                                  emai = true;
-                                  print(email);
-                                } else {
-                                  emai = false;
-                                  return;
-                                }
-                                if (is_phone(Con3.text)) {
-                                  phone = int.parse(Con3.text);
-                                  phon = true;
-                                  print(phone);
-                                } else {
-                                  phon = false;
-                                  return;
-                                }
-                                if (validatepassword(Con4.text)) {
-                                  password = Con4.text;
-                                  pass = true;
-                                  print(password);
-                                } else {
-                                  pass = false;
-                                  return;
-                                }
-                                if (validatepassword(Con5.text)) {
-                                  confirmpassword = Con5.text;
-                                  confpass = true;
-                                  print(confirmpassword);
-                                  
-                                } else {
-                                  confpass = false;
-                                  return;
-                                }
-                                registerUser(email, password, name, phone);
-                              });
+                                print(confirmpassword);
+                              } else {
+                                message = Con1.text == ''
+                                    ? 'Please Enter Confirm Password'
+                                    : 'Confirm Password Invalid';
+                                _showMyDialog();
+
+                                return;
+                              }
+                              registerUser(email, password, name, phone);
                             },
                             style: ButtonStyle(
                               backgroundColor:
@@ -511,12 +504,12 @@ class _signUpState extends State<signUp> {
                           height: 25,
                         ),
                         Text.rich(TextSpan(
-                            text: "Already have a account.",
+                            text: "Already have a account:\t",
                             style: TextStyle(
                                 fontSize: 14, color: Color(0xFF757F8E)),
                             children: [
                               TextSpan(
-                                  text: "login",
+                                  text: "Login",
                                   style: TextStyle(
                                       fontSize: 14,
                                       color: Color(0xFF1A4563),
@@ -535,431 +528,9 @@ class _signUpState extends State<signUp> {
                   ),
                 ),
               ),
-            );
-          } else {
-            return SingleChildScrollView(
-              child: Container(
-                color: Color(0xFFDCEDF9),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      width: 300,
-                      height: 1000,
-                      child: Column(
-                        children: [
-                          Text(
-                            "Create new account",
-                            style: TextStyle(
-                                color: Color(0xFF1A4563),
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Please fill out the below details to ",
-                            style: TextStyle(
-                                color: Color(0xFF1A4563),
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "create your new account.",
-                            style: TextStyle(
-                                color: Color(0xFF1A4563),
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states
-                                          .contains(MaterialState.hovered)) {
-                                        return hoverColor;
-                                      }
-                                      return buttonColor;
-                                    },
-                                  ),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          10), // Remove rounded corners
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Doctor",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states
-                                          .contains(MaterialState.hovered)) {
-                                        return hoverColor;
-                                      }
-                                      return buttonColor;
-                                    },
-                                  ),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          10), // Remove rounded corners
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Patient",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Name',
-                                  style: TextStyle(
-                                      color: Color(0xFF1A4563),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 44,
-                                  child: TextField(
-                                    controller: Con1,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        border: OutlineInputBorder()),
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Visibility(
-                            visible: !nam,
-                            child: Text(
-                              'Name Invalid',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Email',
-                                  style: TextStyle(
-                                      color: Color(0xFF1A4563),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 44,
-                                  child: TextField(
-                                    controller: Con2,
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        border: OutlineInputBorder()),
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Visibility(
-                            visible: !emai,
-                            child: Text(
-                              'Email Invalid',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Phone no.',
-                                  style: TextStyle(
-                                      color: Color(0xFF1A4563),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 44,
-                                  child: TextField(
-                                    controller: Con3,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        border: OutlineInputBorder()),
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Visibility(
-                            visible: !phon,
-                            child: Text(
-                              'Phone Number invalid',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Password',
-                                  style: TextStyle(
-                                      color: Color(0xFF1A4563),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 44,
-                                  child: TextField(
-                                    controller: Con4,
-                                    obscureText: icon_vis,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        suffixIcon: IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                icon_vis = !icon_vis;
-                                              });
-                                            },
-                                            icon: Icon(!icon_vis
-                                                ? Icons.visibility_off
-                                                : Icons.visibility)),
-                                        border: OutlineInputBorder()),
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Visibility(
-                            visible: !pass,
-                            child: Text(
-                              'Password Invalid',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Confirm password',
-                                  style: TextStyle(
-                                      color: Color(0xFF1A4563),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 44,
-                                  child: TextField(
-                                    controller: Con5,
-                                    obscureText: icon_vis,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        suffixIcon: IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                icon_vis = !icon_vis;
-                                              });
-                                            },
-                                            icon: Icon(!icon_vis
-                                                ? Icons.visibility_off
-                                                : Icons.visibility)),
-                                        border: OutlineInputBorder()),
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Visibility(
-                            visible: !confpass,
-                            child: Text(
-                              'Confirm password Invalid',
-                              style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          SizedBox(
-                            height: 44,
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (is_name(Con1.text)) {
-                                  name = Con1.text;
-                                  print(name);
-                                  nam = true;
-                                } else {
-                                  nam = false;
-                                  return;
-                                }
-                                if (is_email(Con2.text)) {
-                                  email = Con2.text;
-                                  emai = true;
-                                  print(email);
-                                } else {
-                                  emai = false;
-                                  return;
-                                }
-                                if (is_phone(Con3.text)) {
-                                  phone = int.parse(Con3.text);
-                                  phon = true;
-                                  print(phone);
-                                } else {
-                                  phon = false;
-                                  return;
-                                }
-                                if (validatepassword(Con4.text)) {
-                                  password = Con4.text;
-                                  pass = true;
-                                  print(password);
-                                } else {
-                                  pass = false;
-                                  return;
-                                }
-                                if (validatepassword(Con5.text)) {
-                                  confirmpassword = Con5.text;
-                                  confpass = true;
-                                  print(confirmpassword);
-                                } else {
-                                  confpass = false;
-                                  return;
-                                }
-                                registerUser(email, password, name, phone);
-                              },
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.resolveWith<Color>(
-                                  (Set<MaterialState> states) {
-                                    if (states
-                                        .contains(MaterialState.hovered)) {
-                                      return hoverColor;
-                                    }
-                                    return buttonColor;
-                                  },
-                                ),
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius
-                                        .zero, // Remove rounded corners
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 25,
-                          ),
-                          Text.rich(TextSpan(
-                              text: "Already have a account.",
-                              style: TextStyle(
-                                  fontSize: 14, color: Color(0xFF757F8E)),
-                              children: [
-                                TextSpan(
-                                    text: "login",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0xFF1A4563),
-                                        fontWeight: FontWeight.bold),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => logIn()),
-                                        );
-                                      })
-                              ]))
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }
-        }),
+            ),
+          ),
+        ),
       ),
     ));
   }
