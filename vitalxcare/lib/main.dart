@@ -1,16 +1,31 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vitalxcare/firebase_options.dart';
+import 'package:vitalxcare/homePage.dart';
+import 'package:vitalxcare/logIn.dart';
 import 'package:vitalxcare/signUp.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform,);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+ 
+
+
 
   // This widget is the root of your application.
   @override
@@ -36,7 +51,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const signUp(),
+      home: auth.currentUser!=null ? HomePage():const signUp(),
     );
   }
 }
