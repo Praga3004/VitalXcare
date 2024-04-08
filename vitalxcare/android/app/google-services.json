@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1012140304801",
+    "firebase_url": "https://vitalxcare-default-rtdb.firebaseio.com",
+    "project_id": "vitalxcare",
+    "storage_bucket": "vitalxcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012140304801:android:a5c71e04a8f5f87d8383e0",
+        "android_client_info": {
+          "package_name": "com.example.vitalxcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012140304801-qu94psjakeso6tecupu6msac09qd6f2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4DOz9Cn9Sow1cRQ3LUPvt4-AtNUya7WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012140304801-qu94psjakeso6tecupu6msac09qd6f2s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1012140304801-hdp05f7i2r4u5dhagjcaojecdvid4g1l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vitalxcare"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
