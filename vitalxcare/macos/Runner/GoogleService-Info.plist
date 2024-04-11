@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1012140304801-ste1f7hpqrr03fkob5ijr5ob5hs82rhd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1012140304801-ste1f7hpqrr03fkob5ijr5ob5hs82rhd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6h4lHL9kobaymHRW1rs_FRmDZ7yaoAi8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1012140304801</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.vitalxcare.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>vitalxcare</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vitalxcare.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1012140304801:ios:e1cfae52931d6a988383e0</string>
+</dict>
+</plist>
