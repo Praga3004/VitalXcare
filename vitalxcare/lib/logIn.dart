@@ -41,6 +41,8 @@ class _logInState extends State<logIn> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: Color(0xFFDCEDF9),
           title: const Text(
             "Warning",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -215,7 +217,7 @@ class _logInState extends State<logIn> {
                   child: Container(
                     padding: EdgeInsets.all(10),
                     width: 300,
-                    height:  MediaQuery.of(context).size.height,
+                    height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: [
                         Text(

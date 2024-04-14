@@ -78,6 +78,9 @@ class _signUpState extends State<signUp> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: Color(0xFFDCEDF9),
           title: const Text(
             "Warning",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -512,7 +515,7 @@ class _signUpState extends State<signUp> {
                                   text: "Login",
                                   style: TextStyle(
                                       fontSize: 14,
-                                      color: Color(0xFF1A4563),
+                                       color: Color(0xFF0060F7),
                                       fontWeight: FontWeight.bold),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
