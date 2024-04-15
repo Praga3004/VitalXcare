@@ -147,7 +147,149 @@ class _HomePageState extends State<HomePage> {
                     // Here you can display your search results based on `_searchText`
                   ],
                 ),
-               
+                Text(
+                  "Services",
+                  style: TextStyle(fontSize: 16),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFB6E0FD),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(0.0),
+                            child: Center(
+                              child: Image.asset(
+                                'assert/Doctor.jpeg', width: 70,
+                                height: 70, // Path to your JPEG image
+                                // Adjust the height as needed
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFFAF0DB),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(0.0),
+                            child: Center(
+                              child: Image.asset(
+                                'assert/medicine.jpeg', width: 70,
+                                height: 70, // Path to your JPEG image
+                                // Adjust the height as needed
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFFD6F6FF),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(0.0),
+                          child: Image.asset(
+                            'assert/info.jpeg', width: 70,
+                            height: 70, // Path to your JPEG image
+                            // Adjust the height as needed
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFF2E3E9),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(0.0),
+                              child: Image.asset(
+                                'assert/Bacteria.jpeg',
+                                width: 70,
+                                height: 70, // Path to your JPEG image
+                                // Adjust the height as needed
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFB6E0FD),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(0.0),
+                            child: Center(
+                              child: Image.asset(
+                                'assert/music.jpeg',
+                                width: 70,
+                                height: 70,
+
+                                /// Path to your JPEG image
+                                // Adjust the height as needed
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFB6E0FD),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(0.0),
+                            child: Center(
+                              child: Image.asset(
+                                'assert/food.jpeg',
+                                width: 70,
+                                height: 70, // Path to your JPEG image
+                                // Adjust the height as needed
+                              ),
+                            ),
+                          )),
+                    ),
+                  ],
+                ),
                 ElevatedButton(onPressed: signout_, child: Text("LogOut"))
               ],
             ),
