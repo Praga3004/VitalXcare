@@ -58,6 +58,69 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => logIn()));
   }
 
+  final List<Widget> slides = [
+    Container(
+      decoration: BoxDecoration(
+        color: Color(0xFFD7DEEA),
+        borderRadius: BorderRadius.circular(20), // Set circular radius
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('What is Cancer?',
+                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+            Text(
+                'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
+                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+            Text('see more >>>',
+                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        color: Color(0xFFD7DEEA),
+        borderRadius: BorderRadius.circular(20), // Set circular radius
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('What is Cancer?',
+                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+            Text(
+                'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
+                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+            Text('see more >>>',
+                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        color: Color(0xFFD7DEEA),
+        borderRadius: BorderRadius.circular(20), // Set circular radius
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('What is Cancer?',
+                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+            Text(
+                'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
+                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+            Text('see more >>>',
+                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+          ],
+        ),
+      ),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     row_width = MediaQuery.of(context).size.width;
@@ -289,6 +352,18 @@ class _HomePageState extends State<HomePage> {
                           )),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  child: PageView(
+                    children: slides,
+                  ),
+                  height: 100,
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 ElevatedButton(onPressed: signout_, child: Text("LogOut"))
               ],

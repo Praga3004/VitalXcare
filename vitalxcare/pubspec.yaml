@@ -78,6 +78,10 @@ flutter:
      - assert/medicine.jpeg
      - assert/music.jpeg
      - assert/food.jpeg
+  fonts:
+    - family: Oldenburg
+      fonts:
+        - asset: assert/Oldenburg-Regular.ttf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
