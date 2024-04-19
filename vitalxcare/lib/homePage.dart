@@ -1,10 +1,9 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vitalxcare/logIn.dart';
+import 'dart:ffi';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -58,6 +57,258 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => logIn()));
   }
 
+  final List<Widget> slides_1 = [
+ Center(
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF1C6BA4),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFF155A96),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "12",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              "Tue",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 22,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "9:30",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            "Dr Minoko",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            "Galappathi",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: IconButton(
+                  onPressed: () {
+                    // Add your onPressed logic here
+                  },
+                  icon: Icon(Icons.more_horiz),
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+   Center(
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 238, 193, 134),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE09F1F),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "12",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              "Tue",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 22,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "9:30",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            "Dr Minoko",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            "Galappathi",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: IconButton(
+                  onPressed: () {
+                    // Add your onPressed logic here
+                  },
+                  icon: Icon(Icons.more_horiz),
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+   Center(
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 112, 234, 171),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 1, 104, 47),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "12",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              "Tue",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 22,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "9:30",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            "Dr Minoko",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            "Galappathi",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: IconButton(
+                  onPressed: () {
+                    // Add your onPressed logic here
+                  },
+                  icon: Icon(Icons.more_horiz),
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+  ];
+
   final List<Widget> slides = [
     Container(
       decoration: BoxDecoration(
@@ -66,15 +317,23 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('What is Cancer?',
-                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: 'Oldenburg')),
             Text(
                 'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
-                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                    fontFamily: 'Oldenburg')),
             Text('see more >>>',
-                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.blue, fontSize: 8, fontFamily: 'Oldenburg')),
           ],
         ),
       ),
@@ -86,15 +345,23 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('What is Cancer?',
-                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: 'Oldenburg')),
             Text(
                 'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
-                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                    fontFamily: 'Oldenburg')),
             Text('see more >>>',
-                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.blue, fontSize: 8, fontFamily: 'Oldenburg')),
           ],
         ),
       ),
@@ -106,15 +373,23 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('What is Cancer?',
-                style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: 'Oldenburg')),
             Text(
                 'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
-                style: TextStyle(color: Colors.black, fontSize: 10,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                    fontFamily: 'Oldenburg')),
             Text('see more >>>',
-                style: TextStyle(color: Colors.blue, fontSize: 8,fontFamily: 'Oldenburg')),
+                style: TextStyle(
+                    color: Colors.blue, fontSize: 8, fontFamily: 'Oldenburg')),
           ],
         ),
       ),
@@ -125,6 +400,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     row_width = MediaQuery.of(context).size.width;
     return MaterialApp(
+      // theme: ThemeData(textTheme: TextTheme(bodyLarge: TextStyle(fontFamily: 'NunitoSans') )),
       home: Scaffold(
         body: Container(
           color: Color(0xFFDCEDF9),
@@ -360,6 +636,16 @@ class _HomePageState extends State<HomePage> {
                   child: PageView(
                     children: slides,
                   ),
+                  height: 100,
+                ),
+                SizedBox(
+                  height: 10,
+                ),Text("Upcoming Appointments",style: TextStyle(color: Colors.black,fontSize:17 ),),
+                 SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  child: PageView(children: slides_1),
                   height: 100,
                 ),
                 SizedBox(
