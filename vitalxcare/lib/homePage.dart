@@ -58,255 +58,255 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> slides_1 = [
- Center(
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFF1C6BA4),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+    Center(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF1C6BA4),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF155A96),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                        Text(
+                          "Tue",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF155A96),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        padding: EdgeInsets.all(15.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "12",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
-                            ),
-                            Text(
-                              "Tue",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
+                      Text(
+                        "9:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Minoko",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
-                      SizedBox(
-                        width: 22,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "9:30",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            "Dr Minoko",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            "Galappathi",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
+                      Text(
+                        "Galappathi",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
                     ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  onPressed: () {
-                    // Add your onPressed logic here
-                  },
-                  icon: Icon(Icons.more_horiz),
-                  color: Colors.white,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-   Center(
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 238, 193, 134),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {
+                // Add your onPressed logic here
+              },
+              icon: Icon(Icons.more_horiz),
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),
+    Center(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 238, 193, 134),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE09F1F),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                        Text(
+                          "Tue",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE09F1F),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        padding: EdgeInsets.all(15.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "12",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
-                            ),
-                            Text(
-                              "Tue",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
+                      Text(
+                        "9:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Minoko",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
-                      SizedBox(
-                        width: 22,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "9:30",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            "Dr Minoko",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            "Galappathi",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
+                      Text(
+                        "Galappathi",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
                     ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  onPressed: () {
-                    // Add your onPressed logic here
-                  },
-                  icon: Icon(Icons.more_horiz),
-                  color: Colors.white,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-   Center(
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 112, 234, 171),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {
+                // Add your onPressed logic here
+              },
+              icon: Icon(Icons.more_horiz),
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),
+    Center(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 112, 234, 171),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 1, 104, 47),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                        Text(
+                          "Tue",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 1, 104, 47),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        padding: EdgeInsets.all(15.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "12",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
-                            ),
-                            Text(
-                              "Tue",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
+                      Text(
+                        "9:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Minoko",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
-                      SizedBox(
-                        width: 22,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "9:30",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            "Dr Minoko",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            "Galappathi",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
+                      Text(
+                        "Galappathi",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
                     ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  onPressed: () {
-                    // Add your onPressed logic here
-                  },
-                  icon: Icon(Icons.more_horiz),
-                  color: Colors.white,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {
+                // Add your onPressed logic here
+              },
+              icon: Icon(Icons.more_horiz),
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),
   ];
 
   final List<Widget> slides = [
@@ -396,14 +396,22 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
+  int _selectedIndex = 0;
+  final List<Widget> _pages = [
+    HomePage(),
+    HomePage(),
+    HomePage(),
+    logIn()
+  ];
   @override
   Widget build(BuildContext context) {
     row_width = MediaQuery.of(context).size.width;
     return MaterialApp(
       // theme: ThemeData(textTheme: TextTheme(bodyLarge: TextStyle(fontFamily: 'NunitoSans') )),
       home: Scaffold(
+        backgroundColor: Color(0xFFDCEDF9),
         body: Container(
-          color: Color(0xFFDCEDF9),
+          
           width: double.infinity,
           height: double.infinity,
           child: SingleChildScrollView(
@@ -640,8 +648,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(
                   height: 10,
-                ),Text("Upcoming Appointments",style: TextStyle(color: Colors.black,fontSize:17 ),),
-                 SizedBox(
+                ),
+                Text(
+                  "Upcoming Appointments",
+                  style: TextStyle(color: Colors.black, fontSize: 17),
+                ),
+                SizedBox(
                   height: 10,
                 ),
                 SizedBox(
@@ -655,6 +667,43 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+        // Set your desired color here
+        type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          backgroundColor: Color(0xFFDCEDF9),
+          onTap: (value) {
+            setState(() {
+              _selectedIndex = value; 
+              
+   
+             
+            });
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => _pages[value]),
+              );
+              
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.schedule),
+              label: 'Schedules',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.report),
+              label: 'Report',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              label: 'Notifications',
+            ),
+          ],
         ),
       ),
     );
