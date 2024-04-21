@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:vitalxcare/logIn.dart';
 import 'dart:ffi';
 
+import 'package:vitalxcare/schedule.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -397,12 +399,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int _selectedIndex = 0;
-  final List<Widget> _pages = [
-    HomePage(),
-    HomePage(),
-    HomePage(),
-    logIn()
-  ];
+  final List<Widget> _pages = [HomePage(), schedule(), HomePage(), logIn()];
   @override
   Widget build(BuildContext context) {
     row_width = MediaQuery.of(context).size.width;
@@ -411,7 +408,6 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         backgroundColor: Color(0xFFDCEDF9),
         body: Container(
-          
           width: double.infinity,
           height: double.infinity,
           child: SingleChildScrollView(
@@ -669,22 +665,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-        // Set your desired color here
-        type: BottomNavigationBarType.fixed,
+          // Set your desired color here
+          type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           backgroundColor: Color(0xFFDCEDF9),
           onTap: (value) {
             setState(() {
-              _selectedIndex = value; 
-              
-   
-             
+              _selectedIndex = value;
             });
-             Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => _pages[value]),
-              );
-              
+            );
           },
           items: [
             BottomNavigationBarItem(
