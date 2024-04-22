@@ -1,8 +1,13 @@
+// ignore_for_file: unnecessary_import, prefer_const_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vitalxcare/logIn.dart';
+import 'package:vitalxcare/notification.dart';
+import 'package:vitalxcare/report.dart';
+import 'package:vitalxcare/account.dart';
 import 'dart:ffi';
 
 import 'package:vitalxcare/schedule.dart';
@@ -56,6 +61,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> signout_() async {
     auth.signOut();
+    Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) => logIn()));
   }
 
@@ -166,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "12",
+                          "13",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -174,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          "Tue",
+                          "Wed",
                           style: TextStyle(color: Colors.white),
                         )
                       ],
@@ -187,11 +193,11 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "9:30",
+                        "10:30",
                         style: TextStyle(color: Colors.white),
                       ),
                       Text(
-                        "Dr Minoko",
+                        "Dr Anuruddha",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -199,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        "Galappathi",
+                        "Paadeniya",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -350,13 +356,13 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('What is Cancer?',
+            Text('What is hepatitis?',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
                     fontFamily: 'Oldenburg')),
             Text(
-                'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
+                'Hepatitis means inflammation of the liver. When the liver is inflamed or damaged, its function  ...',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
@@ -378,13 +384,13 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('What is Cancer?',
+            Text('What is ebola?',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
                     fontFamily: 'Oldenburg')),
             Text(
-                'Cancer is a disease caused when cells divide uncontrollably and spread into ...',
+                'Ebola disease is the term for a group of deadly diseases in people caused by four ebolaviruses ...',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
@@ -399,11 +405,16 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int _selectedIndex = 0;
-  final List<Widget> _pages = [HomePage(), schedule(), HomePage(), logIn()];
+  final List<Widget> _pages = [
+    HomePage(),
+    schedule(),
+    Reportpage(),
+    Notificationpage()
+  ];
   @override
   Widget build(BuildContext context) {
     row_width = MediaQuery.of(context).size.width;
-    return MaterialApp(
+    return MaterialApp( debugShowCheckedModeBanner: false,
       // theme: ThemeData(textTheme: TextTheme(bodyLarge: TextStyle(fontFamily: 'NunitoSans') )),
       home: Scaffold(
         backgroundColor: Color(0xFFDCEDF9),
@@ -456,13 +467,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Flexible(
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () { Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Account()),
+            );},
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20))),
                             child: Center(
                                 child: Icon(
-                              Icons.person,
+                              Icons.person, color: Colors.black,
                             ))),
                       ),
                     ]),
@@ -492,7 +506,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   "Services",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 10,
@@ -504,7 +518,7 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFB6E0FD),
+                              backgroundColor: Color(0xFFB8DFFF),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           child: Padding(
@@ -525,7 +539,7 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFFAF0DB),
+                              backgroundColor: Color(0XFFFCF1DB),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           child: Padding(
@@ -592,7 +606,7 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFB6E0FD),
+                              backgroundColor: Color(0xFFB8DFFF),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           child: Padding(
@@ -616,7 +630,7 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFB6E0FD),
+                              backgroundColor: Color(0xFFB8DFFF),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           child: Padding(
@@ -647,7 +661,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   "Upcoming Appointments",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
+                  style: TextStyle(color: Colors.black, fontSize: 17,fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 10,
@@ -659,7 +673,6 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
-                ElevatedButton(onPressed: signout_, child: Text("LogOut"))
               ],
             ),
           ),
