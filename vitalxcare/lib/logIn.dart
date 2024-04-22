@@ -41,7 +41,8 @@ class _logInState extends State<logIn> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           backgroundColor: Color(0xFFDCEDF9),
           title: const Text(
             "Warning",
@@ -205,8 +206,16 @@ class _logInState extends State<logIn> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return MaterialApp( debugShowCheckedModeBanner: false,
+      home: Scaffold(appBar: AppBar(title:   Center(
+        child: Text(
+                            "Welcome to Login",
+                            style: TextStyle(
+                                color: Color(0xFF1A4563),
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+      ),backgroundColor: Color(0xFFDCEDF9),),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -220,13 +229,7 @@ class _logInState extends State<logIn> {
                     height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: [
-                        Text(
-                          "Welcome to Login",
-                          style: TextStyle(
-                              color: Color(0xFF1A4563),
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
-                        ),
+                      
                         SizedBox(
                           height: 10,
                         ),
@@ -367,8 +370,7 @@ class _logInState extends State<logIn> {
                               shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                                  borderRadius: BorderRadius
-                                      .zero, // Remove rounded corners
+                                  borderRadius: BorderRadius.circular(20), // Remove rounded corners
                                 ),
                               ),
                             ),
@@ -395,7 +397,7 @@ class _logInState extends State<logIn> {
                               TextSpan(
                                 text: " SignUp",
                                 style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 20,
                                     color: Color(0xFF0060F7),
                                     fontWeight: FontWeight.bold),
                                 recognizer: TapGestureRecognizer()
