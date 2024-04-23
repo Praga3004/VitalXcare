@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:vitalxcare/homePage.dart';
 import 'package:vitalxcare/logIn.dart';
+import 'package:vitalxcare/notification.dart';
+import 'package:vitalxcare/report.dart';
 
 class schedule extends StatefulWidget {
   const schedule({Key? key}) : super(key: key);
@@ -18,23 +20,22 @@ class _scheduleState extends State<schedule> {
   final List<Widget> _pages = [
     HomePage(),
     schedule(),
-    HomePage(),
-    logIn(),
+    Reportpage(),
+    Notificationpage(),
   ];
 
-  Row generateDatePages() {
+   Row generateDatePages() {
     List<Widget> pages = [];
 
     // Get the current date
     DateTime now = DateTime.now();
 
-    // Get the last day of the current month
-    DateTime lastDayOfMonth = DateTime(now.year, now.month + 1, 0);
+    // Calculate the date 30 days from today
+    DateTime endDate = now.add(Duration(days: 30));
 
-    // Iterate over each day until the end of the month
-    for (int i = now.day; i <= lastDayOfMonth.day; i++) {
-      // Create a DateTime object for the current day
-      DateTime currentDate = DateTime(now.year, now.month, i);
+    // Iterate over each day until the endDate
+    DateTime currentDate = now;
+    while (currentDate.isBefore(endDate.add(Duration(days: 1)))) {
       bool buttonPressed = false;
 
       // Format the date using intl package
@@ -45,40 +46,41 @@ class _scheduleState extends State<schedule> {
       formattedDay = formattedDay.substring(0, 3);
 
       // Create a page widget for the current date and day
-      Widget page = Container(
-        child: ElevatedButton(
-          onPressed: () {
-            buttonPressed=
-            !buttonPressed;
-            // Add onPressed functionality here if needed
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor:buttonPressed? Color(0xFFA1BDD2):Color(0xFF1C6BA4), // Background color
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10), // BorderRadius
-            ),
+      Widget page = ElevatedButton(
+        onPressed: () {
+          setState(() {
+            buttonPressed = !buttonPressed;
+            print("HERE");
+          });
+          // Add your onPressed functionality here (optional)
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: buttonPressed ? Colors.white : Color(0xFF1C6BA4),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: Container(
-            width: 70, // Set a fixed width for each date page
-
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  formattedDate,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+        ),
+        child: Container(
+          // opacity: 1.0, // Ensure container opacity is 1 (fully opaque)
+          width: 70,
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                formattedDate,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
-                SizedBox(height: 10),
-                Text(
-                  formattedDay,
-                  style: TextStyle(fontSize: 16, color: Colors.black),
-                ),
-              ],
-            ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                formattedDay,
+                style: TextStyle(fontSize: 16, color: Colors.black),
+              ),
+            ],
           ),
         ),
       );
@@ -86,6 +88,9 @@ class _scheduleState extends State<schedule> {
       // Add the page to the list of pages
       pages.add(page);
       pages.add(SizedBox(width: 10));
+
+      // Increment currentDate by 1 day
+      currentDate = currentDate.add(Duration(days: 1));
     }
 
     return Row(
@@ -103,6 +108,182 @@ class _scheduleState extends State<schedule> {
       ],
     );
   }
+  
+  final List<Widget> slides_1 = [
+    SizedBox(height: 20), 
+    
+    Center(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 113, 179, 226),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                 
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "9:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Minoko",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Galappathi",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {
+                // Add your onPressed logic here
+              },
+              icon: Icon(Icons.more_horiz),
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),SizedBox(height: 20), 
+    Center(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 238, 193, 134),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                 
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "10:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Anuruddha",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Paadeniya",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {
+                // Add your onPressed logic here
+              },
+              icon: Icon(Icons.more_horiz),
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),SizedBox(height: 20), 
+    Center(
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 112, 234, 171),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  
+                
+                  SizedBox(
+                    width: 22,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "9:30",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Dr Minoko",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Galappathi",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+         
+        ],
+      ),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +295,7 @@ class _scheduleState extends State<schedule> {
     // Format the day of the week using DateFormat
     String formattedDay = DateFormat('EEEE').format(now);
     Row Pages = generateDatePages();
-    return MaterialApp(
+    return MaterialApp( debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color(0xFFDCEDF9),
         body: SingleChildScrollView(
@@ -143,6 +324,8 @@ class _scheduleState extends State<schedule> {
                     children: [Expanded(child: Pages)],
                   ),
                 ),
+                Column(children:slides_1,)
+    
 
                 // Add your scheduling content here
                 // For example, display a list of scheduled appointments
