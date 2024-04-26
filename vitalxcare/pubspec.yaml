@@ -38,6 +38,7 @@ dependencies:
   cloud_firestore: ^4.15.10
   google_sign_in: ^5.2.1
   intl: ^0.17.0
+  date_field: 3.0.3
 
  
 
